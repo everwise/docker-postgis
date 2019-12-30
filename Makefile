@@ -6,8 +6,7 @@ build: $(VERSIONS)
 
 define postgis-version
 $1:
-	docker build -t everwisehq/postgis:$(shell echo $1 | sed -e 's/-.*//g') $1
-	docker build -t everwisehq/postgis:$(shell echo $1 | sed -e 's/-.*//g')-alpine $1/alpine
+	docker build -t everwisehq/postgis:$1 $1
 endef
 $(foreach version,$(VERSIONS),$(eval $(call postgis-version,$(version))))
 
